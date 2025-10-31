@@ -1,11 +1,39 @@
+:root {
+  --nat-navbar-bg: black;
+  --nat-navbar-bg-color: black;
+  --nat-navbar-bg-rgb: 49, 42, 114;
+  --nat-navbar-text-color: white;
+  --nat-navbar-highlight-text: purple;
+}
+
 html,
 body {
-  --bs-light-rgb: 236, 236, 236;
+  --bs-dark: var(--nat-navbar-bg);
+  --bs-dark-rgb: var(--nat-navbar-bg-rgb);
+  background: fixed center url("/city-skyline.jpeg");
+  background-size: cover;
   box-sizing: border-box;
   height: 100%;
   padding: 0;
   margin: 0;
 }
+
+body .navbar {
+  --bs-navbar-active-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-brand-color: var(--nat-navbar-text-color);
+  --bs-navbar-brand-hover-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-color: var(--nat-navbar-text-color);
+  --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
+}
+
+footer, footer a {
+  color: var(--nat-navbar-text-color);
+}
+
+.bg-dark a.dropdown-item {
+  color: var(--nat-navbar-bg);
+}
+
 .wrapper {
   box-sizing: border-box;
   min-height: 100%;
