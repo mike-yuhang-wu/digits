@@ -5,6 +5,17 @@ import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
 
+export async function addNote(note: { note: string; contactId: number, owner: string }) {
+  await prisma.note.create({
+    data: {
+      note: note.note,
+      contactId: note.contactId,
+      owner: note.owner,
+    },
+  });
+  redirect('/list');
+}
+
 /**
  * Adds a new contact to the database.
  * @param contact, a Contact object.

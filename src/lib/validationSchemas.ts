@@ -1,5 +1,11 @@
 import * as Yup from 'yup';
 
+export const AddNoteSchema = Yup.object({
+  note: Yup.string().required(),
+  contactId: Yup.number().required(),
+  owner: Yup.string().required(),
+});
+
 export const AddStuffSchema = Yup.object({
   name: Yup.string().required(),
   quantity: Yup.number().positive().required(),
