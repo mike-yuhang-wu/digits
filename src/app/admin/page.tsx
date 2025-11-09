@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
-import { Contact } from '@/lib/validationSchemas';
+import { Contact } from '@prisma/client';
 import ContactCardAdmin from '@/components/ContactCardAdmin';
 
 const AdminPage = async () => {
@@ -13,7 +13,13 @@ const AdminPage = async () => {
       user: { email: string; id: string; randomKey: string };
     } | null,
   );
+  const owner = session?.user!.email ? session.user.email : '';
   const contacts : Contact[] = await prisma.contact.findMany({});
+  const notes = await prisma.note.findMany({
+    where: {
+      owner,
+    },
+  });
   return (
     <main>
       <Container id="list" fluid className="py-3">
@@ -24,9 +30,12 @@ const AdminPage = async () => {
           <Row className="mt-5">
             <Col>
               <Row xs={1} md={2} lg={3} className="g-4">
-                {contacts.map((item) => (
-                  <Col key={`Contact-${item.firstName}`}>
-                    <ContactCardAdmin contact={item} />
+                {contacts.map((contact) => (
+                  <Col key={`Contact-${contact.firstName}`}>
+                    <ContactCardAdmin
+                      contact={contact}
+                      notes={notes.filter((note) => (note.contactId === contact.id))}
+                    />
                   </Col>
                 ))}
               </Row>
