@@ -37,7 +37,7 @@ After filling out the form and clicking Register, a new user account is created.
 By default, new accounts are user accounts, not admin accounts.
 
 ### Contact List Page (User Dashboard)
-<img src="doc/landing-after-login-in.png">
+<img src="doc/landing-after-login-page.png">
 
 After logging in, users are directed to the Contact List Page, which acts as the user’s main dashboard.
 
@@ -107,5 +107,6 @@ Would you like me to add a short “How to Download and Run the Project” secti
 7. Seed the `digits` database with default account and contacts by running `npx prisma db seed`.
 8. Run `npm run dev`, then click on the URL provided in the terminal (might be http://localhost:3000) to see the digits website.
 
+## Notice
 
-
+ChatGPT was used to help writing this documentation.
