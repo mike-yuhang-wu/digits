@@ -86,7 +86,7 @@ Each contact card has the same structure as in the regular contact card, but inc
 
 Regardless what account is used to log in, there will be a button at the very left in the navigation bar that says "digits." Click on it and the description page which a user see before they log in will show.
 
-## Footer
+### Footer
 
 The footer contains the information of the institution that made the template, from which this project is built upon. There is also a link to that template.
 
